@@ -2,14 +2,16 @@ import { ReactElement } from 'react';
 import './App.css';
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import SignInPage from './pages/SignInPage';
-import NavHeader from './pages/NavigationHeader';
+import HomePage from './pages/HomePage';
+import SalesPage from './pages/SalesPage';
 
 function App() : ReactElement {
   return (
    <BrowserRouter>
-   <NavHeader />
    <Routes>
-    <Route path="" element={<SignInPage />}/>
+    <Route path="/sign-in" element={<SignInPage />}/>
+    <Route path="/" element={<HomePage/>}/>
+    <Route path="/sales-page" element={<SalesPage/>}/>
    </Routes>
    </BrowserRouter>
   );

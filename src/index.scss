@@ -263,6 +263,17 @@ $table-cell-padding-x: 1rem;
   }
 }
 
+.heading-style {
+  font-family: "Inter", sans-serif; /* Use Inter font */
+  font-weight: 500; /* Use Roboto Slab Medium weight */
+  color: $grey-dark; /* Use your defined theme color */
+  margin-bottom: $spacer; /* Use your defined spacing */
+}
+
+.text-muted {
+  color: $text-muted; /* Apply text-muted color */
+}
+
 // Basic CSS //
 body {
   margin: 0;
