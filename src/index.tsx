@@ -9,6 +9,9 @@ import "react-toastify/dist/ReactToastify.css";
 import axiosResponseInterceptor from "./api-services/axios-response-interceptor";
 import axiosRequestInterceptor from "./api-services/axios-request-interceptor";
 import 'bootstrap/dist/css/bootstrap.min.css';
+import 'bootstrap-icons/font/bootstrap-icons.css';
+import 'bootstrap/dist/js/bootstrap.bundle.min.js';
+
 
 import "./index.scss";
 
