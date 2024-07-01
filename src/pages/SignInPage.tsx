@@ -43,7 +43,7 @@ function SignInPage(): ReactElement {
     try {
       console.log(data);
       const SignUpResponse = await apiService.userSignUp(data);
-      if(SignUpResponse.status===200){
+      if(SignUpResponse.status===201){
         toast.success("Sign-Up successful!", {
             containerId: "toast-container-message",
           });
