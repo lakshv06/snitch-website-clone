@@ -9,10 +9,20 @@ export interface UserSignUpData{
     confirm_password: string; 
 }
 
-export interface GetLoginSessionResponseData{
+export interface ExtendedLoginData extends UserGetLoginSessionData {
+    otp?: string;
+    password?: string;
+  }
 
+export interface GetLoginSessionResponseData{
+token_response: string;
+email: string;
 }
 
 export interface UserSignUpResponseData{
+
+}
+
+export interface UserSignInResponseData{
 
 }
