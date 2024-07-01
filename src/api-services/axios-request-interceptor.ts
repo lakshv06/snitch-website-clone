@@ -1,14 +1,19 @@
 import axios from "axios";
 
-/**
- * Request Interceptor function for axios.
- */
-function axiosRequestInterceptor(): void {
+function axiosRequestInterceptor() {
   axios.interceptors.request.use(
-    (request) => {
-      return request;
+    (config) => {
+      // Get token from wherever it's stored (e.g., localStorage, sessionStorage)
+      const token = sessionStorage.getItem("token_response");
+
+      // Add token to headers if it exists
+      if (token) {
+        config.headers.Authorization = `Bearer ${token}`;
+      }
+
+      return config;
     },
-    function (error) {
+    (error) => {
       return Promise.reject(error);
     }
   );
