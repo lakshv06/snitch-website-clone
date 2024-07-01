@@ -1,12 +1,30 @@
 import { ReactElement } from "react";
 import { getUser, clearUser } from "../api-services/sessionStorage";
+import apiService from "../api-services/apiServices";
+import { toast } from "react-toastify";
+import { useNavigate } from "react-router-dom";
 
 function NavHeader(): ReactElement {
-  const { tokenResponse } = getUser();
+  const { tokenResponse, userName } = getUser();
+  const navigate = useNavigate();
 
-  const handleSignOut = () => {
-    clearUser();
-    window.location.href = "/";
+  const handleSignOut = async () => {
+    try {
+      const logoutResponse = await apiService.userSignOut({ email: userName });
+      if (logoutResponse) {
+        console.log(logoutResponse);
+        toast.success("Successfully Logged Out!", {
+          containerId: "toast-container-message",
+        });
+        clearUser();
+        navigate("/");
+      }
+    } catch (e) {
+      console.log("error in logout: ", e);
+      toast.error("Error in logging out. Try again!", {
+        containerId: "toast-container-message",
+      });
+    }
   };
 
   return (
@@ -48,10 +66,17 @@ function NavHeader(): ReactElement {
             <div className="offcanvas-body">
               <ul className="navbar-nav justify-content-end flex-grow-1 pe-3">
                 <li className="nav-item border-bottom">
-                  <a className="nav-link active" aria-current="page" href="sign-in">
+                  <a
+                    className="nav-link active"
+                    aria-current="page"
+                    href="sign-in"
+                  >
                     <span className="d-flex flex-row gap-2">
                       <p className="mb-0">Login</p>
-                      <i className="bi bi-person-circle" style={{ color: "grey", fontSize: "1rem" }}></i>
+                      <i
+                        className="bi bi-person-circle"
+                        style={{ color: "grey", fontSize: "1rem" }}
+                      ></i>
                     </span>
                   </a>
                 </li>
@@ -76,21 +101,33 @@ function NavHeader(): ReactElement {
           </div>
           <div className="d-flex flex-row">
             <a href="/sign-in" className="m-2">
-              <i className="bi bi-person" style={{ fontSize: "1.5rem", color: "grey" }}></i>
+              <i
+                className="bi bi-person"
+                style={{ fontSize: "1.5rem", color: "grey" }}
+              ></i>
             </a>
             <a href="" className="m-2">
-              <i className="bi bi-search" style={{ fontSize: "1.5rem", color: "grey" }}></i>
+              <i
+                className="bi bi-search"
+                style={{ fontSize: "1.5rem", color: "grey" }}
+              ></i>
             </a>
             <a href="" className="m-2">
-              <i className="bi bi-heart" style={{ fontSize: "1.5rem", color: "grey" }}></i>
+              <i
+                className="bi bi-heart"
+                style={{ fontSize: "1.5rem", color: "grey" }}
+              ></i>
             </a>
             <a href="" className="m-2">
-              <i className="bi bi-bag-dash" style={{ fontSize: "1.5rem", color: "grey" }}></i>
+              <i
+                className="bi bi-bag-dash"
+                style={{ fontSize: "1.5rem", color: "grey" }}
+              ></i>
             </a>
             {tokenResponse && (
-              <a href="" className="m-2" onClick={handleSignOut}>
-                <i className="bi bi-box-arrow-right" style={{ fontSize: "1.5rem", color: "grey" }}></i>
-              </a>
+              <button className="btn btn-sm btn-outline-warning m-2" onClick={handleSignOut}>
+                Sign Out
+              </button>
             )}
           </div>
         </div>

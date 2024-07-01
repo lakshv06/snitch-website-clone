@@ -26,3 +26,7 @@ export interface UserSignUpResponseData{
 export interface UserSignInResponseData{
 
 }
+
+export interface UserLogOutResponseData{
+    
+}
