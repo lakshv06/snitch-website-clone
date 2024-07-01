@@ -3,9 +3,10 @@ export interface UserGetLoginSessionData{
 }
 
 export interface UserSignUpData{
+    name: string;
     email: string;
     password: string;
-    confirmpassword: string; 
+    confirm_password: string; 
 }
 
 export interface GetLoginSessionResponseData{

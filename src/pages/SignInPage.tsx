@@ -107,6 +107,21 @@ function SignInPage(): ReactElement {
           <FormProvider {...signUpMethods}>
             <div className="fs-3">Sign-Up</div>
             <form onSubmit={signUpMethods.handleSubmit(handleSignUpFormSubmit)}>
+            <div className="mb-3">
+                <label id="label-Sign-up-name" className="form-label" htmlFor="label-for-signup-name">
+                  <span>
+                    Enter Your Name: <i className="bi fs-6 bi-asterisk bi-danger" style={{ color: "red" }}></i>
+                  </span>
+                </label>
+                <input
+                  className="form-input form-control"
+                  id="label-for-signup-name"
+                  type="text"
+                  placeholder="Type your name here"
+                  aria-describedby="nameForSignUp"
+                  {...signUpMethods.register("name", { required: true })}
+                />
+              </div>
               <div className="mb-3">
                 <label id="label-Sign-up-email" className="form-label" htmlFor="label-for-signup-email">
                   <span>
@@ -149,7 +164,7 @@ function SignInPage(): ReactElement {
                   type="password"
                   placeholder="Please confirm your password"
                   aria-describedby="Confirm Password For SignUp"
-                  {...signUpMethods.register("confirmpassword", { required: true })}
+                  {...signUpMethods.register("confirm_password", { required: true })}
                 />
               </div>
               <div className="d-flex flex-column">

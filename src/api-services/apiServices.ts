@@ -13,7 +13,7 @@ class snitchAPI {
       sign_up: "/sign-up"
     };
 
-    this.base_url = `${environmentData.url}`;
+    this.base_url = environmentData.url;
   }
 
   getLoginSession = async(email: string):Promise<AxiosResponse<GetLoginSessionResponseData>> =>{
