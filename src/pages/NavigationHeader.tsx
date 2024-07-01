@@ -16,7 +16,7 @@ function NavHeader(): ReactElement {
             <span className="navbar-toggler-icon"></span>
           </button>
           <a className="navbar-brand" href="#">
-            <h3 className="heading-style">SNITCH</h3>
+            <h3 className="heading-style mb-0">SNITCH</h3>
           </a>
           <div
             className="offcanvas offcanvas-start"
