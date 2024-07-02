@@ -10,7 +10,7 @@ export interface UserSignUpData{
 }
 
 export interface ExtendedLoginData extends UserGetLoginSessionData {
-    otp?: string;
+    otp?: number;
     password?: string;
   }
 
