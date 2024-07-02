@@ -18,6 +18,10 @@ function SignInPage(): ReactElement {
     mode: "all",
   });
 
+  const takeHomePageNavigation = (): void=>{
+    navigate("/");
+  }
+
   const handleLoginSessionFormSubmit: SubmitHandler<ExtendedLoginData> = async (
     data
   ) => {
@@ -139,10 +143,13 @@ function SignInPage(): ReactElement {
               </>
             )}
             <div className="d-flex flex-column">
+                <div className="d-flex flex-row">
               <button className="btn btn-outline-warning" type="submit">
                 {showOtpAndPassword ? "Login" : "Get OTP"}
               </button>
-              <span className="d-flex flex-row">
+              <button className="btn btn-outline-dark mx-3" type="button" onClick={takeHomePageNavigation}>Go Home</button>
+              </div>
+              <span className="d-flex flex-row mt-2">
                 Want to{" "}
                 <div
                   className="mx-2 text-primary"
