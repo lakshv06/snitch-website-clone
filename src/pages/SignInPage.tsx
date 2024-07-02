@@ -107,7 +107,7 @@ function SignInPage(): ReactElement {
                   <input
                     className="form-input form-control"
                     id="label-for-otp"
-                    type="text"
+                    type="number"
                     placeholder="Enter your OTP"
                     aria-describedby="otpField"
                     {...loginMethods.register("otp", { required: true })}
