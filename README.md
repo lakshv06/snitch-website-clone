@@ -1,3 +1,31 @@
+# lakshv06 Personal Learning Project
+
+This is lakshv06 personal learning project showcasing various React.js concepts. This is a fullstack project with the backend side also available on GitHub.
+
+## Project Description
+
+A comprehensive fullstack application demonstrating user authentication, session management, and OTP-based login system using React.js for the frontend and Express.js for the backend.
+
+## Technologies Used
+
+- React.js
+- Express.js
+- PostgreSQL
+- SendGrid for email services
+
+## Setting Up the Frontend
+
+1. **Clone the Repository**
+
+   git clone https://github.com/your-username/frontend-repo.git
+   cd frontend-repo
+
+2. create a .env file in root directory of frontend folder and add following commands in that-
+    `REACT_APP_BACKEND_URL = YOUR_BACKEND_BASE_URL`
+3. Run npm install in terminal to download all the required node packages.
+
+4. Run npm start in your terminal
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
